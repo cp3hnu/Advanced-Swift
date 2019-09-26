@@ -97,6 +97,7 @@
 		35CACBA52331FFC7003135FD = {
 			isa = PBXGroup;
 			children = (
+				35CACBD2233203EA003135FD /* Playground */,
 				35CACBB02331FFC7003135FD /* Advanced-Swift */,
 				35CACBDA2332047B003135FD /* Utils */,
 				35CACBAF2331FFC7003135FD /* Products */,
@@ -115,8 +116,6 @@
 		35CACBB02331FFC7003135FD /* Advanced-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				35CACBD2233203EA003135FD /* Playground */,
-				35CACBC323320011003135FD /* Utils */,
 				35CACBB12331FFC7003135FD /* AppDelegate.swift */,
 				35CACBB32331FFC7003135FD /* ViewController.swift */,
 				35CACBB52331FFC7003135FD /* Main.storyboard */,
@@ -125,23 +124,6 @@
 				35CACBBD2331FFCC003135FD /* Info.plist */,
 			);
 			path = "Advanced-Swift";
-			sourceTree = "<group>";
-		};
-		35CACBC323320011003135FD /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				35CACBC42332003A003135FD /* Array.swift */,
-				35CACBC52332003A003135FD /* FIFOQueue.swift */,
-				35CACBC92332003A003135FD /* Index.swift */,
-				35CACBC62332003A003135FD /* List.swift */,
-				35CACBC72332003A003135FD /* Optional.swift */,
-				35CACBC82332003A003135FD /* Sequence.swift */,
-				35CACBD02332008E003135FD /* Fuction.swift */,
-				35CACBED233310A8003135FD /* BidirectionBind.swift */,
-				35CACBF02333177E003135FD /* Dictionary.swift */,
-				35A09B46233A0CD900B56B9E /* Generic.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		35CACBD2233203EA003135FD /* Playground */ = {
@@ -155,6 +137,16 @@
 		35CACBDA2332047B003135FD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				35CACBC42332003A003135FD /* Array.swift */,
+				35CACBC52332003A003135FD /* FIFOQueue.swift */,
+				35CACBC92332003A003135FD /* Index.swift */,
+				35CACBC62332003A003135FD /* List.swift */,
+				35CACBC72332003A003135FD /* Optional.swift */,
+				35CACBC82332003A003135FD /* Sequence.swift */,
+				35CACBD02332008E003135FD /* Fuction.swift */,
+				35CACBED233310A8003135FD /* BidirectionBind.swift */,
+				35CACBF02333177E003135FD /* Dictionary.swift */,
+				35A09B46233A0CD900B56B9E /* Generic.swift */,
 				35CACBDB2332047B003135FD /* Utils.h */,
 				35CACBDC2332047B003135FD /* Info.plist */,
 			);

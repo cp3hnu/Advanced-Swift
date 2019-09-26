@@ -4,6 +4,10 @@
 
 #### 数组
 
+##### 扩展
+
+Array.swift
+
 ##### 切片
 
 ```swift
@@ -240,7 +244,7 @@ protocol IteratorProtocol {
 
 ##### Example
 
-见代码
+Sequence.swift
 
 ##### AnyIterator
 
@@ -319,9 +323,13 @@ let fibsSequence = sequence(state: (0, 1)) { (state: inout (Int, Int)) -> Int? i
 
 ##### 链表
 
-见代码
+List.swift
 
 #### 集合类型
+
+#### Example
+
+FIFOQueue.swift
 
 Collection协议有5个关联类型
 
@@ -366,7 +374,7 @@ Indices 的默认类型是 DefaultIndices<Self>。和 Slice 一样，它是对�
 
 #### 索引
 
-见代码
+Index.swift
 
 #### 切片
 
@@ -530,6 +538,10 @@ let s1: String?? = nil // nil
 let s2: String?? = .some(nil) // Optional(nil) 
 (s2 ?? "inner") ?? "outer" // outer
 ```
+
+#### 一些运算符
+
+Optional.swift
 
 ### 第五章 结构体和类
 
@@ -748,7 +760,7 @@ john // John, parents:[John,parents:[]]
 
 ### 第5章 编码和解码
 
-
+略
 
 ### 第6章 函数
 
@@ -836,7 +848,7 @@ KVO 使用 Objective-C 的运行时特性， 它动态地在类的 setter 中添
 
 #### 下标
 
-见Dictionary.swift subscript方法
+Dictionary.swift subscript方法
 
 #### 键路径
 
@@ -844,7 +856,7 @@ KVO 使用 Objective-C 的运行时特性， 它动态地在类的 setter 中添
 
 ##### 双向数据绑定
 
-见BidirectionBind.swift
+BidirectionBind.swift
 
 ##### 类型
 
@@ -1117,7 +1129,7 @@ extension Sequence {
 
 1.  我们从 for 循 环切换为了 while 循环，这是因为如果使用 for i in indices.dropLast() 来迭代索引的话，可能 会有性能问题：如果 indices 属性持有了对集合的引用，那么在遍历 indices 的同时更改集合内容，将会让我们失去写时复制的优化，因为集合需要进行不必要的复制操作。
 
-2.  非变更shuffled方法，没有扩展 MutableCollection。这其实也是一个标准库中经常能够⻅到的模式 — 比如，当你对一个 ContiguousArray 进行排序操作时，你得到的是一个 Array 返回，而不是 ContiguousArray。
+2. 非变更shuffled方法，没有扩展 MutableCollection。这其实也是一个标准库中经常能够⻅到的模式 — 比如，当你对一个 ContiguousArray 进行排序操作时，你得到的是一个 Array 返回，而不是 ContiguousArray。
 
     在这里，原因是我们的不可变版本是依赖于复制集合并对它进行原地操作这一系列步骤的。进一步说，它依赖的是集合的值语义。但是并不是所有集合类型都具有值语义。要是 NSMutableArray 也满 MutableCollection 的话，那么 shuffl􏰁ed 和 shuffl􏰁e 的效果将是一样的。这是因为如果 NSMutableArray 是引用，那么 var clone = self 仅只是复制了一份引用，这样一来，接下来的 clone.shuffl􏰁e 调用将会作用在 self 上，显然这可能并不是用戶所期望的行为。所以，我们可以将这个集合中的元素完全复制到一个数组里，对它进行随机排列， 然后返回。
 

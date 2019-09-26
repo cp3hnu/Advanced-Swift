@@ -21,7 +21,7 @@ extension NSObjectProtocol where Self: NSObject {
             }
         }
     
-    func bind<A, Other>(_ keyPath: ReferenceWritableKeyPath<Self,A>,
+    public func bind<A, Other>(_ keyPath: ReferenceWritableKeyPath<Self,A>,
                         to other: Other,
                         _ otherKeyPath: ReferenceWritableKeyPath<Other,A>)
         -> (NSKeyValueObservation, NSKeyValueObservation) where A: Equatable, Other: NSObject {

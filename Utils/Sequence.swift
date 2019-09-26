@@ -8,6 +8,7 @@
 
 import Foundation
 
+// 斐波拉契迭代器
 struct FibsIterator: IteratorProtocol {
     var state = (0, 1)
     mutating func next() -> Int? {
@@ -23,6 +24,7 @@ struct FibsSequence: Sequence {
     }
 }
 
+// String前缀迭代器
 struct PrefixIterator: IteratorProtocol {
     let string: String
     var offset: String.Index
