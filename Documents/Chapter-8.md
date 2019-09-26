@@ -90,4 +90,3 @@ protocol TextOutputStreamable {
   func write<Target>(to target: inout Target) where Target : TextOutputStream
 }
 ```
-

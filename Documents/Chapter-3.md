@@ -257,4 +257,3 @@ extension FIFOQueue: RangeReplaceableCollection {
     }
 }
 ```
-

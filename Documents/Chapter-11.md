@@ -118,5 +118,3 @@ MemoryLayout<ClassOnly>.size // 16
 ```swift
 MemoryLayout<NSObjectProtocol>.size // 8 
 ```
-
-### 

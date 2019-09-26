@@ -211,4 +211,4 @@ john // John, parents:[John,parents:[]]
 
 #### unowned VS weak
 
-非强引用对象拥有和强引用对象同样或者更⻓的生命周期的话， unowned 引用通常会更方便一些
+非强引用对象拥有和强引用对象同样或者更⻓的生命周期的话， unowned 引用通常会更方便一些。
