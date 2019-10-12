@@ -83,12 +83,12 @@ extension Sequence where Element: Hashable {
   func unique() -> [Element] {
     var seen: Set<Element> = []
     return filter { element in
-        if seen.contains(element) {
-            return false
-        } else {
-            seen.insert(element)
-            return true
-        }
+      if seen.contains(element) {
+        return false
+      } else {
+        seen.insert(element)
+        return true
+      }
     }
   }
 }
@@ -192,8 +192,10 @@ typealias CountablePartialRangeFrom<Bound> = PartialRangeFrom<Bound> where Bound
 ```swift
 public protocol RangeExpression {
 associatedtype Bound: Comparable
-func contains(_ element: Bound) -> Bool // 某个元素是否被包括在该范围中
-func relative<C>(to collection: C) -> Range<Bound> where C : Collection, Self.Bound == C.Index // 给定一个集合类型，它能够计算出表达式所指定的完整的Range，例如array[2..<4]
+// 某个元素是否被包括在该范围中
+func contains(_ element: Bound) -> Bool 
+// 给定一个集合类型，它能够计算出表达式所指定的完整的Range，例如array[2..<4]
+func relative<C>(to collection: C) -> Range<Bound> where C : Collection, Self.Bound == C.Index 
 static func ~= (pattern: Self, value: Self.Bound) -> Bool // switch case中模式匹配
 ```
 

@@ -63,9 +63,9 @@ print(iterator2.next())   // 8
 func fibsIterator() -> AnyIterator<Int> { 
   var state = (0, 1)
   return AnyIterator {
-	let upcomingNumber = state.0 
-	state = (state.1, state.0 + state.1) 
-	return upcomingNumber
+    let upcomingNumber = state.0
+    state = (state.1, state.0 + state.1)
+    return upcomingNumber
   } 
 }
 ```

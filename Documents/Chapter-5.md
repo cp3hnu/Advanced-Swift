@@ -59,7 +59,7 @@ point.x = 20
 ```swift
 extension Point {
   static func +=(lhs: inout Point, rhs: Point) {
-	lhs = lhs + rhs
+    lhs = lhs + rhs
   }
 }
 ```

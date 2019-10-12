@@ -43,14 +43,14 @@ extension RandomAccessCollection where Index == Int, IndexDistance == Int {
     var right = count - 1 
     while left <= right {
       let mid = (left + right) / 2 // bug-2
-	  let candidate = self[mid]
-	  if areInIncreasingOrder(candidate,value) {
-	    left = mid + 1
-	  } else if areInIncreasingOrder(value,candidate) {
-	    right = mid - 1 
-	  } else {
-	    // 由于 isOrderedBefore 的要求，如果两个元素互⽆无顺序关系，那么它们⼀一定相等
-	    return mid 
+      let candidate = self[mid]
+      if areInIncreasingOrder(candidate,value) {
+        left = mid + 1
+      } else if areInIncreasingOrder(value,candidate) {
+        right = mid - 1 
+      } else {
+        // 由于 isOrderedBefore 的要求，如果两个元素互⽆无顺序关系，那么它们⼀一定相等
+        return mid 
 	  }
     }
     // 未找到
