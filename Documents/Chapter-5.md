@@ -6,13 +6,13 @@
 
 ```swift
 struct Point {
-    var x = 0
-    var y = 0
+  var x = 0
+  var y = 0
 }
 var point = Point(x: 10, y: 10) {
-    didSet {
-        print("didSet")
-    }
+  didSet {
+    print("didSet")
+  }
 }
 // 赋值的时候，didSet会被触发
 point = Point(x: 20, y: 20) 
@@ -32,17 +32,17 @@ point.x = 20
 
 ```swift
 class Point {
-    var x = 0
-    var y = 0
-    init(x: Int, y: Int) {
-        self.x = x
-        self.y = y
-    }
+  var x = 0
+  var y = 0
+  init(x: Int, y: Int) {
+    self.x = x
+    self.y = y
+  }
 }
 var point = Point(x: 10, y: 10) {
-    didSet {
-        print("didSet")
-    }
+  didSet {
+    print("didSet")
+  }
 }
 // didSet会触发
 point = Point(x: 20, y: 20)
@@ -113,17 +113,17 @@ for _ in 0..<Int.max {
 ```swift
 // Objective-C的类，isKnownUniquelyReferenced直接返回false，所以需要包装一下
 final class Box<A> {
-	var unbox: A
-	init(_ value: A) { 
-		self.unbox = value 
-	}
+  var unbox: A
+  init(_ value: A) { 
+	self.unbox = value 
+  }
 }
 
 struct MyData {
   private var _data: Box<NSMutableData> 
   var _dataForWriting: NSMutableData {
     mutating get {
-	  if !isKnownUniquelyReferenced(&_data) {
+      if !isKnownUniquelyReferenced(&_data) {
 		_data = Box(_data.unbox.mutableCopy() as! NSMutableData) 
 		print("Making a copy")
 	  }
@@ -132,11 +132,11 @@ struct MyData {
   } 
   
   init() {
-	_data = Box(NSMutableData()) 
+    _data = Box(NSMutableData()) 
   }
   
   init(_ data: NSData) {
-	_data = Box(data.mutableCopy() as! NSMutableData)
+    _data = Box(data.mutableCopy() as! NSMutableData)
   } 
 }
 

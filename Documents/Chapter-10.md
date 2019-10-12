@@ -6,22 +6,22 @@
 
 ```swift
 precedencegroup ExponentiationPrecedence {
-    associativity: left
-    higherThan: MultiplicationPrecedence
+  associativity: left
+  higherThan: MultiplicationPrecedence
 }
 
 infix operator **: ExponentiationPrecedence
 func **(lhs: Double, rhs: Double) -> Double {
-    return pow(lhs, rhs)
+  return pow(lhs, rhs)
 }
 
 func **(lhs: Float, rhs: Float) -> Float {
-    return powf(lhs, rhs)
+  return powf(lhs, rhs)
 }
 
 func **<I: BinaryInteger>(lhs: I, rhs: I) -> I {
-    let result = Double(Int64(lhs)) ** Double(Int64(rhs))
-    return I(result)
+  let result = Double(Int64(lhs)) ** Double(Int64(rhs))
+  return I(result)
 }
 
 let intResult =2 ** 3 // 报错
@@ -38,22 +38,22 @@ let intResult: Int = 2 ** 3 // 8
 
 ```swift
 extension RandomAccessCollection where Index == Int, IndexDistance == Int { 
-	public func binarySearch(for value: Element, areInIncreasingOrder: (Element, Element) -> Bool) -> Index? {
-	var left = 0 // bug-1
-	var right = count - 1 
-	while left <= right {
-		let mid = (left + right) / 2 // bug-2
-		let candidate = self[mid]
-		if areInIncreasingOrder(candidate,value) {
-			left = mid + 1
-		} else if areInIncreasingOrder(value,candidate) {
-			right = mid - 1 }
-		else {
-			// 由于 isOrderedBefore 的要求，如果两个元素互⽆无顺序关系，那么它们⼀一定相等
-			return mid 
-		}
-	}
-	// 未找到
+  public func binarySearch(for value: Element, areInIncreasingOrder: (Element, Element) -> Bool) -> Index? {
+    var left = 0 // bug-1
+    var right = count - 1 
+    while left <= right {
+      let mid = (left + right) / 2 // bug-2
+	  let candidate = self[mid]
+	  if areInIncreasingOrder(candidate,value) {
+	    left = mid + 1
+	  } else if areInIncreasingOrder(value,candidate) {
+	    right = mid - 1 
+	  } else {
+	    // 由于 isOrderedBefore 的要求，如果两个元素互⽆无顺序关系，那么它们⼀一定相等
+	    return mid 
+	  }
+    }
+    // 未找到
 	return nil
   }
 }

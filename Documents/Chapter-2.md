@@ -50,22 +50,22 @@ protocol Hashable: Equatable {
 
 ```swift
 class Point: Hashable {
-    let x: Int
-    let y: Int
+  let x: Int
+  let y: Int
     
-    init(x: Int, y: Int) {
-        self.x = x
-        self.y = y
-    }
+  init(x: Int, y: Int) {
+    self.x = x
+    self.y = y
+  }
     
-    static func == (lhs: Point, rhs: Point) -> Bool {
-        return lhs.x == rhs.x && lhs.y == rhs.y
-    }
+  static func == (lhs: Point, rhs: Point) -> Bool {
+    return lhs.x == rhs.x && lhs.y == rhs.y
+  }
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(x)
-        hasher.combine(y)
-    }
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(x)
+    hasher.combine(y)
+  }
 }
 ```
 
@@ -80,17 +80,17 @@ class Point: Hashable {
 
 ```swift
 extension Sequence where Element: Hashable {
-    func unique() -> [Element] {
-        var seen: Set<Element> = []
-        return filter { element in
-            if seen.contains(element) {
-                return false
-            } else {
-                seen.insert(element)
-                return true
-            }
+  func unique() -> [Element] {
+    var seen: Set<Element> = []
+    return filter { element in
+        if seen.contains(element) {
+            return false
+        } else {
+            seen.insert(element)
+            return true
         }
     }
+  }
 }
 ```
 
@@ -165,8 +165,8 @@ func stride<T>(from start: T, to end: T, by stride: T.Stride) -> StrideTo<T> whe
 extension StrideTo : Sequence {}
 
 for radians in stride(from: 0.0, to: .pi * 2, by: .pi / 2) {
-    let degrees = Int(radians * 180 / .pi)
-    print("Degrees: \(degrees), radians: \(radians)")
+  let degrees = Int(radians * 180 / .pi)
+  print("Degrees: \(degrees), radians: \(radians)")
 }
 ```
 

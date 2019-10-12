@@ -6,15 +6,15 @@
 
 ```swift
 protocol Sequence {
-	associatedtype Element where Self.Element == Self.Iterator.Element
-	associatedtype Iterator: IteratorProtocol 
-	func makeIterator() -> Iterator
+  associatedtype Element where Self.Element == Self.Iterator.Element
+  associatedtype Iterator: IteratorProtocol 
+  func makeIterator() -> Iterator
 	// ...
 }
 
 protocol IteratorProtocol { 
-	associatedtype Element 
-	mutating func next() -> Element?
+  associatedtype Element 
+  mutating func next() -> Element?
 }
 ```
 
@@ -61,12 +61,12 @@ print(iterator2.next())   // 8
 
 ```swift
 func fibsIterator() -> AnyIterator<Int> { 
-	var state = (0, 1)
-	return AnyIterator {
-		let upcomingNumber = state.0 
-		state = (state.1, state.0 + state.1) 
-		return upcomingNumber
-	} 
+  var state = (0, 1)
+  return AnyIterator {
+	let upcomingNumber = state.0 
+	state = (state.1, state.0 + state.1) 
+	return upcomingNumber
+  } 
 }
 ```
 
@@ -85,9 +85,9 @@ let fibsSequence = AnySequence(fibsIterator)
 
 ```swift
 let fibsSequence = sequence(state: (0, 1)) { (state: inout (Int, Int)) -> Int? in 
-	let upcomingNumber = state.0
-	state = (state.1, state.0 + state.1)
-	return upcomingNumber 
+  let upcomingNumber = state.0
+  state = (state.1, state.0 + state.1)
+  return upcomingNumber 
 }
 ```
 
@@ -190,10 +190,10 @@ ReverseCollection 不会真的去将元素做逆序操作，而是会持有原�
 
 ```swift
 extension FIFOQueue: BidirectionalCollection {
-    func index(before i: Int) -> Int {
-        precondition(i > startIndex)
-        return i - 1
-    }
+  func index(before i: Int) -> Int {
+    precondition(i > startIndex)
+    return i - 1
+  }
 }
 ```
 
@@ -250,10 +250,10 @@ confirm to *RangeReplaceableCollection*，自动获得以下功能
 
 ```swift
 extension FIFOQueue: RangeReplaceableCollection {
-    mutating func replaceSubrange<C: Collection>(_ subrange: Range<Int>, with newElements: C) where C.Element == Element {
-        right = left.reversed() + right
-        left.removeAll()
-        right.replaceSubrange(subrange, with: newElements)
-    }
+  mutating func replaceSubrange<C: Collection>(_ subrange: Range<Int>, with newElements: C) where C.Element == Element {
+    right = left.reversed() + right
+    left.removeAll()
+    right.replaceSubrange(subrange, with: newElements)
+  }
 }
 ```

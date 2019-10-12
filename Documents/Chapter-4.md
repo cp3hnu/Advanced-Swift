@@ -6,8 +6,8 @@
 // x?是.Some(x)的缩写
 var array = ["one","two","three"] 
 switch array.index(of: "four") { 
-	case let idx?: array.remove(at: idx) 
-	case nil: break
+  case let idx?: array.remove(at: idx) 
+  case nil: break
 }
 
 for case let i? in maybeInts { ... }
@@ -23,8 +23,8 @@ if case/for case/switch case使用 **~=** 运算符重载
 
 ```swift
 struct Pattern {
-	let s: String
-	init(_ s: String) { self.s = s }
+  let s: String
+  init(_ s: String) { self.s = s }
 }
 func ~=(pattern: Pattern, value: String) -> Bool { 
 	return value.range(of: pattern.s) != nil
@@ -35,8 +35,8 @@ if case Pattern("Swift") = s { ... }
 
 ```swift
 struct Person { 
-	var name: String 
-	var age: Int
+  var name: String 
+  var age: Int
 }
 var optionalLisa: Person? = Person(name: "Lisa Simpson", age: 8)
 optionalLisa?.age += 1 // 注意！

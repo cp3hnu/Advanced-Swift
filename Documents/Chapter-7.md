@@ -4,7 +4,7 @@
 
 ```swift
 func printInt(i: Int) {
-	print("you passed", i)
+  print("you passed", i)
 }
 
 let funVar = printInt // 或者 let funVar = printInt(i:)
