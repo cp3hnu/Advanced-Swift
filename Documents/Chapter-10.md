@@ -50,11 +50,11 @@ extension RandomAccessCollection where Index == Int, IndexDistance == Int {
         right = mid - 1 
       } else {
         // 由于 isOrderedBefore 的要求，如果两个元素互⽆无顺序关系，那么它们⼀一定相等
-        return mid 
-	  }
+        return mid
+      }
     }
     // 未找到
-	return nil
+    return nil
   }
 }
 ```
