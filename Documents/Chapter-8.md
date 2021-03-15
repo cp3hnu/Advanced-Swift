@@ -10,9 +10,11 @@ Unicode标量(Unicode scalar)等价于Unicode编码点(code point)，除了0xD80
 
 Unicode编码点(code point)可以编码成许多不同宽度的编码单元(code unit)，最普通的是使用UTF-8或者UTF-16
 
-用户在屏幕上看到的单个字符可能有多个编码点组成的，在Unicode中，这种从用户视角看到的字符，叫做**扩展字符族(extended grapheme cluster)**，在Swift中，字符族有Character类型来表示。
+用户在屏幕上看到的单个字符可能有多个编码点组成的，在Unicode中，这种从用户视角看到的字符，叫做**扩展字符族(extended grapheme cluster)**，在Swift中，字符族用**Character**类型来表示。
 
-Swift内部使用了**UTF-16**作为非ASCII字符串的编码方式。
+~~Swift内部使用了**UTF-16**作为非ASCII字符串的编码方式。~~
+
+Swift 5内部使用了**UTF-8**作为非ASCII字符串的编码方式。[UTF-8 String]([https://swift.org/blog/utf8-string/](https://swift.org/blog/utf8-string/))
 
 é(U+00E9)与é(U+0065)+(U+0301)在Swift是表示相同的字符，Unicode规范将此称作**标准等价**。
 
